@@ -96,7 +96,6 @@ export default function VeryfiPage() {
               </p>
               <Button
                 type="button"
-                variant="link"
                 onClick={handleResendOtp}
                 disabled={timeLeft > 0}
                 className="text-primary"
