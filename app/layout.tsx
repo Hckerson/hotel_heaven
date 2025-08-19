@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
+import { flex } from "@/components/fonts/fonts";
 import { Toaster } from "@/components/ui/toaster";
 import LenisScrollContainer from "@/app/hooks/lenis";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
@@ -72,7 +73,7 @@ export default function RootLayout({
         />
       </Head>
       <body
-        className={`${inter.variable} font-sans antialiased  [&::-webkit-scrollbar]:w-2
+        className={`${flex.className} font-sans antialiased  [&::-webkit-scrollbar]:w-2
   [&::-webkit-scrollbar-track]:bg-gray-100
   [&::-webkit-scrollbar-thumb]:rounded-full
   [&::-webkit-scrollbar-thumb]:bg-gray-300
@@ -80,7 +81,7 @@ export default function RootLayout({
   dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500`}
       >
         <ThemeProvider
-          attribute="class" 
+          attribute="class"
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange

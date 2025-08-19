@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star } from "lucide-react";
-import { flex } from "@/components/fonts/fonts-google";
+import { flex } from "@/components/fonts/fonts";
 import Video from "@/components/ui/video-player";
 
 export default function Home() {

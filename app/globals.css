@@ -68,4 +68,8 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+
+  .diagonal-clip {
+    clip-path: ellipse(closest-side closest-side at 5rem 6rem);
+  }
 }
