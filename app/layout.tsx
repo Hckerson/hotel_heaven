@@ -1,11 +1,12 @@
-import './globals.css'
+import "./globals.css";
+import Head from "next/head";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
 import { Toaster } from "@/components/ui/toaster";
-import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import LenisScrollContainer from "@/app/hooks/lenis";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,9 +65,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <Head>
+        <link
+          href="https://unpkg.com/cloudinary-video-player/dist/cld-video-player.min.css"
+          rel="stylesheet"
+        />
+      </Head>
+      <body
+        className={`${inter.variable} font-sans antialiased  [&::-webkit-scrollbar]:w-2
+  [&::-webkit-scrollbar-track]:bg-gray-100
+  [&::-webkit-scrollbar-thumb]:rounded-full
+  [&::-webkit-scrollbar-thumb]:bg-gray-300
+  dark:[&::-webkit-scrollbar-track]:bg-neutral-700
+  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500`}
+      >
         <ThemeProvider
-          attribute="class"
+          attribute="class" 
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange
@@ -74,7 +88,7 @@ export default function RootLayout({
           <LenisScrollContainer>
             <div className="flex min-h-screen flex-col bg-background">
               <Navbar />
-              <main className="flex-1">{children}</main>
+              <main className=" ">{children}</main>
               <Footer />
             </div>
             <Toaster />

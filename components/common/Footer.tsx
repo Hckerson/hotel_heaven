@@ -16,83 +16,67 @@ import { Separator } from "@/components/ui/separator";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const socials = [
+    {
+      name: "Twitter",
+      link: "https://twitter.com/hckerson_jnr",
+      icon: Twitter,
+    },
+    {
+      name: "Facebook",
+      link: "https://facebook.com/hckerson_jnr",
+      icon: Facebook,
+    },
+    {
+      name: "Instagram",
+      link: "https://instagram.com/hckerson_jnr",
+      icon: Instagram,
+    },
+    {
+      name: "Youtube",
+      link: "https://youtube.com/hckerson_jnr",
+      icon: Youtube,
+    },
+    {
+      name: "Linkedin",
+      link: "https://linkedin.com/hckerson_jnr",
+      icon: Linkedin,
+    },
+  ];
+
   return (
-    <footer className="bg-muted/40">
+    <footer className="bg-black py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Logo and About */}
         <div className="space-y-4">
-          <Logo />
+          <main className="flex">
+            <div className="left grid gap-y-4">
+
+              <Logo color="text-stone-400" />
+            </div>
+            <div className="right">sup</div>
+          </main>
           <div className="flex space-x-2">
-            <Link
-              href="https://twitter.com/hckerson_jnr"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-            >
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-8 w-8 rounded-full"
-              >
-                <Twitter className="h-4 w-4" />
-              </Button>
-            </Link>
-            <Link
-              href="https://facebook.com/hckerson.jnr"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-            >
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-8 w-8 rounded-full"
-              >
-                <Facebook className="h-4 w-4" />
-              </Button>
-            </Link>
-            <Link
-              href="https://instagram.com/hckerson_jnr"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-8 w-8 rounded-full"
-              >
-                <Instagram className="h-4 w-4" />
-              </Button>
-            </Link>
-            <Link
-              href="https://linkedin.com/hckerson"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-            >
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-8 w-8 rounded-full"
-              >
-                <Linkedin className="h-4 w-4" />
-              </Button>
-            </Link>
-            <Link
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube"
-            >
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-8 w-8 rounded-full"
-              >
-                <Youtube className="h-4 w-4" />
-              </Button>
-            </Link>
+            {socials.map((social) => {
+              const ICON = social.icon;
+              return (
+                <Link
+                  key={social.name}
+                  href={social.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                >
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8 rounded-full"
+                  >
+                    <ICON className="h-4 w-4" />
+                  </Button>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>
