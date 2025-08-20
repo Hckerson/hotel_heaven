@@ -11,7 +11,7 @@ import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const navLinks = [
-  { href: "/", label: "Home", link: true, size: "sm" },
+  { href: "/test", label: "Home", link: true, size: "sm" },
   { href: "/about", label: "About", link: true, size: "sm" },
   { href: "/testimonials", label: "Testimonials", link: false, size: "sm" },
   { href: "/room/reserve", label: "Book room", link: true, size: "md" },
