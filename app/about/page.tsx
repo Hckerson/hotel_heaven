@@ -1,76 +1,26 @@
+"use client";
 import "swiper/css";
 import clsx from "clsx";
 import Link from "next/link";
-import Swiper from "swiper";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import Image from "next/image";
-import { Instagram, Linkedin } from "lucide-react";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import AdminExpo from "@/components/admin-card";
+import { admins } from "@/lib/placeholder_data";
+import { Instagram, Linkedin } from "lucide-react";
+import Nav from "@/components/ui/swiper-pagination";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { people, reviews } from "@/lib/placeholder_data";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Navigation, Pagination, Scrollbar } from "swiper/modules";
 
 export default function About() {
-  const reviews = [
-    { name: "Employers", number: "50k+" },
-    { name: "Users globally", number: "05M+" },
-    { name: "Positive reviews", number: "98%" },
-    { name: "Years in business", number: "15+" },
-  ];
-
-  const people = [
-    {
-      image: "/alii.png",
-      name: "Michael Carter",
-      position: "Senior sales strategist",
-      socials: [
-        {
-          name: "instagram",
-          link: "https://www.instagram.com/michael_carter",
-          icon: Instagram,
-        },
-        {
-          name: "linkedin",
-          link: "https://linkedin.com/michael_carter",
-          icon: Linkedin,
-        },
-      ],
-    },
-    {
-      image: "/hannahh.png",
-      name: "Ryan Davis",
-      position: "HR Head",
-      socials: [
-        {
-          name: "instagram",
-          link: "https://www.instagram.com/ryan_davis",
-          icon: Instagram,
-        },
-        {
-          name: "linkedin",
-          link: "https://linkedin.com/ryan_davis",
-          icon: Linkedin,
-        },
-      ],
-    },
-    {
-      image: "/christianaa.png",
-      name: "Jessica Walker",
-      position: "Customer  Successs Manager",
-      socials: [
-        {
-          name: "instagram",
-          link: "https://www.instagram.com/jessica_walker",
-          icon: Instagram,
-        },
-        {
-          name: "linkedin",
-          link: "https://linkedin.com/jessica_walker",
-          icon: Linkedin,
-        },
-      ],
-    },
-  ];
   return (
     <>
-      <main className="w-full box-border flex flex-col bg-red-50 pt-36 space-y-16">
-        <section className="lg:grid lg:grid-cols-2 items-end px-16 ">
+      <main className="w-full box-border flex flex-col bg-red-50 pt-36 ">
+        <section className="lg:grid lg:grid-cols-2 items-end px-16 pb-16">
           <div className="grid ">
             <span className="text-amber-300 text-lg font-semibold">
               We are professionals
@@ -85,7 +35,7 @@ export default function About() {
             reinventing real estate investing end-to-end
           </div>
         </section>
-        <section className="overflow-hidden box-border w-full h-[calc(100vh-450px)]">
+        <section className="overflow-hidden box-border w-full h-[calc(100vh-450px)]pb-16">
           <div className="grid gap-x-4 w-full lg:grid-cols-3 px-4 items-center justify-center">
             <Image
               src={`/showcase-3.jpg`}
@@ -110,8 +60,8 @@ export default function About() {
             ></Image>
           </div>
         </section>
-        <section className="grid items-center justify-center bg-black py-16">
-          <section className="grid lg:gap-y-[80px] items-center justify-center">
+        <section className="grid items-center justify-center bg-black py-16 pb-16">
+          <section className="grid lg:gap-y-[80px] items-center justify-center ">
             <div className="grid items-center justify-center">
               <span
                 style={{ maxWidth: "15ch" }}
@@ -209,21 +159,75 @@ export default function About() {
             })}
           </div>
         </section>
-        <section className="grid gap-y-12">
+        <section className="grid gap-y-12 bg-black pt-16">
           <div className="grid items-center justify-center">
             <span
               style={{ maxWidth: "17ch" }}
-              className="text-4xl text-center font-normal text-wrap bg-linear-to-r from-black to-70% to-stone-600 bg-clip-text  text-transparent"
+              className="text-4xl text-center font-normal text-wrap bg-linear-to-r from-stone-700  via-20% via-stone-200 to-90% to-stone-600 bg-clip-text  text-transparent"
             >
               What our customers are saying
             </span>
           </div>
+
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar]}
+            spaceBetween={25}
+            slidesPerView={5}
+            scrollbar={{ draggable: true }}
+            onSwiper={(swiper) => console.log(swiper)}
+            onSlideChange={() => console.log("slide change")}
+            className=" lg:w-[900px] lg:h-[200px] relative flex space-x-8 justify-center items-center"
+            loop={true}
+          >
+            {admins.map((admin, idx) => {
+              return (
+                <SwiperSlide className="flex items-centersize-fit justify-center">
+                  return (
+                  <div className="flex items-center justify-center h-full">
+                    <Image
+                      key={idx}
+                      width="100"
+                      height="100"
+                      alt=""
+                      src={admin.img}
+                      className={clsx(
+                        "rounded-full",
+                        idx == 2 ? "size-[150px] " : "size-[80px]",
+                      )}
+                    ></Image>
+                  </div>
+                  );
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar]}
+            spaceBetween={50}
+            slidesPerView={1}
+            scrollbar={{ draggable: true }}
+            onSwiper={(swiper) => console.log(swiper)}
+            onSlideChange={() => console.log("slide change")}
+            className=" lg:w-[900px] lg:h-[400px] relative"
+            loop={true}
+          >
+            {admins.map((admin, idx) => {
+              return (
+                <SwiperSlide>
+                  <AdminExpo key={idx} adminDto={admin} />;
+                </SwiperSlide>
+              );
+            })}
+            <div className="swiper-pagination"></div>
+            <div className="absolute left-0 top-[40%] z-20 size-16 ">
+              <Nav direction="left" />
+            </div>
+            <div className="absolute right-0 top-[40%] z-20 size-16 ">
+              <Nav direction="right" />
+            </div>
+          </Swiper>
         </section>
-        <div className="grid gap-y-16">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
       </main>
     </>
   );

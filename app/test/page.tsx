@@ -1,29 +1,23 @@
-"use client";
-import "swiper/css";
-import Swiper from "swiper";
-import { useEffect } from "react";
+import { Virtual } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-export default function Test() {
-  useEffect(() => {
-    const swiper = new Swiper(".swiper", {
-      speed: 400,
-      spaceBetween: 100,
-    });
-  }, []);
-  return (
-    <div className="swiper mt-16  ">
-      <div className="swiper-wrapper">
-        <div className=" size-36">Slide 1</div>
-        <div className=" size-36">Slide 2</div>
-        <div className=" size-36">Slide 3</div>
-      </div>
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/virtual';
 
-      <div className="swiper-pagination"></div>
-
-      <div className="swiper-button-prev"></div>
-      <div className="swiper-button-next"></div>
-
-      <div className="swiper-scrollbar"></div>
-    </div>
+export default () => {
+  // Create array with 1000 slides
+  const slides = Array.from({ length: 1000 }).map(
+    (el, index) => `Slide ${index + 1}`
   );
-}
+
+  return (
+    <Swiper modules={[Virtual]} spaceBetween={50} slidesPerView={3} virtual>
+      {slides.map((slideContent, index) => (
+        <SwiperSlide key={slideContent} virtualIndex={index}>
+          {slideContent}
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  );
+};
