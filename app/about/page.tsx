@@ -5,18 +5,25 @@ import Link from "next/link";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { Swiper as SwiperType } from "swiper";
 import { Button } from "@/components/ui/button";
 import AdminExpo from "@/components/admin-card";
 import { admins } from "@/lib/placeholder_data";
-import { Instagram, Linkedin } from "lucide-react";
 import Nav from "@/components/ui/swiper-pagination";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { people, reviews } from "@/lib/placeholder_data";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { Navigation, Pagination, Scrollbar } from "swiper/modules";
+import { Navigation, Pagination, Scrollbar, Thumbs } from "swiper/modules";
 
 export default function About() {
+  const thumbsRef = useRef<SwiperType | null>(null);
+  const mainRef = useRef<{ swiper: SwiperType } | null>(null);
+  const handleSlideNext = () => {
+    mainRef.current?.swiper.slideNext();
+  };
+  const handleSlidePrev = () => {
+    mainRef.current?.swiper.slidePrev();
+  };
   return (
     <>
       <main className="w-full box-border flex flex-col bg-red-50 pt-36 ">
@@ -35,7 +42,7 @@ export default function About() {
             reinventing real estate investing end-to-end
           </div>
         </section>
-        <section className="overflow-hidden box-border w-full h-[calc(100vh-450px)]pb-16">
+        <section className="overflow-hidden box-border w-full h-[calc(100vh-450px)] pb-16">
           <div className="grid gap-x-4 w-full lg:grid-cols-3 px-4 items-center justify-center">
             <Image
               src={`/showcase-3.jpg`}
@@ -170,14 +177,15 @@ export default function About() {
           </div>
 
           <Swiper
-            modules={[Navigation, Pagination, Scrollbar]}
+            modules={[Navigation, Pagination, Scrollbar, Thumbs]}
             spaceBetween={25}
             slidesPerView={5}
             scrollbar={{ draggable: true }}
-            onSwiper={(swiper) => console.log(swiper)}
+            onSwiper={(swiper) => (thumbsRef.current = swiper)}
             onSlideChange={() => console.log("slide change")}
             className=" lg:w-[900px] lg:h-[200px] relative flex space-x-8 justify-center items-center"
             loop={true}
+
           >
             {admins.map((admin, idx) => {
               return (
@@ -203,7 +211,8 @@ export default function About() {
           </Swiper>
 
           <Swiper
-            modules={[Navigation, Pagination, Scrollbar]}
+            ref={mainRef}
+            modules={[Navigation, Pagination, Scrollbar, Thumbs]}
             spaceBetween={50}
             slidesPerView={1}
             scrollbar={{ draggable: true }}
@@ -211,6 +220,7 @@ export default function About() {
             onSlideChange={() => console.log("slide change")}
             className=" lg:w-[900px] lg:h-[400px] relative"
             loop={true}
+            thumbs={{ swiper: thumbsRef.current }}
           >
             {admins.map((admin, idx) => {
               return (
@@ -221,10 +231,10 @@ export default function About() {
             })}
             <div className="swiper-pagination"></div>
             <div className="absolute left-0 top-[40%] z-20 size-16 ">
-              <Nav direction="left" />
+              <Nav direction="left" action={handleSlidePrev} />
             </div>
             <div className="absolute right-0 top-[40%] z-20 size-16 ">
-              <Nav direction="right" />
+              <Nav direction="right" action={handleSlideNext} />
             </div>
           </Swiper>
         </section>

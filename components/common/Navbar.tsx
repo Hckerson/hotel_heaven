@@ -7,16 +7,9 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/common/Logo";
+import { navLinks } from "@/lib/placeholder_data";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-
-const navLinks = [
-  { href: "/test", label: "Home", link: true, size: "sm" },
-  { href: "/about", label: "About", link: true, size: "sm" },
-  { href: "/testimonials", label: "Testimonials", link: false, size: "sm" },
-  { href: "/room/reserve", label: "Book room", link: true, size: "md" },
-  { href: "/auth/signup", label: "Sign up ", link: true, size: "lg" },
-];
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -66,9 +59,11 @@ export default function Navbar() {
                   pathname === link.href
                     ? "text-accent font-medium"
                     : "text-foreground/80",
-                  link.size == "sm"
-                    ? "hidden lg:inline-block text-base rounded-md"
-                    : "inline-block text-lg font-semibold ",
+                  !isLoggedIn && link.secure
+                    ? "lg:hidden"
+                    : link.size === "sm"
+                      ? "hidden lg:inline-block text-base rounded-md"
+                      : "inline-block text-lg font-semibold",
                 )}
               >
                 {link.label}
@@ -76,7 +71,9 @@ export default function Navbar() {
             ))}
             <ThemeToggle />
             <Button asChild size="sm" className="ml-4">
-              <Link href="/contact" className="text-stone-400 text-base">Contact</Link>
+              <Link href="/contact" className="text-stone-400 text-base">
+                Contact
+              </Link>
             </Button>
           </nav>
 
