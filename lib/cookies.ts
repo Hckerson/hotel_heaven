@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 
 export class Cookies {
-  constructor() {}
+  constructor() { }
   static async getSessionCookies() {
     const cookieStore = await cookies();
     const sessionToken = cookieStore.get("sessionToken");

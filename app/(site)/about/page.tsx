@@ -185,7 +185,6 @@ export default function About() {
             onSlideChange={() => console.log("slide change")}
             className=" lg:w-[900px] lg:h-[200px] relative flex space-x-8 justify-center items-center"
             loop={true}
-
           >
             {admins.map((admin, idx) => {
               return (

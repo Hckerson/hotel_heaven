@@ -1,50 +1,47 @@
 import "./globals.css";
 import Head from "next/head";
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "@/components/common/Navbar";
-import Footer from "@/components/common/Footer";
 import { flex } from "@/components/fonts/fonts";
 import { Toaster } from "@/components/ui/toaster";
 import LenisScrollContainer from "@/app/hooks/lenis";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-export const metadata: Metadata = {
-  title: "Professional Author & Content Creator",
+export const metadata = {
+  title: "Hotel Serena Heaven | Luxury Hotel in Newark",
   description:
-    "Award-winning author and content creator specializing in compelling narratives and professional writing services",
+    "Hotel Serena Heaven — a boutique luxury hotel in Newark offering elegant rooms and suites, fine dining, spa services, and versatile event spaces.",
   keywords: [
-    "author",
-    "writer",
-    "blog",
-    "portfolio",
-    "books",
-    "writing",
-    "content creation",
+    "hotel",
+    "Newark hotel",
+    "luxury hotel",
+    "boutique hotel",
+    "accommodation",
+    "rooms",
+    "suites",
+    "spa",
+    "dining",
+    "events",
+    "weddings",
+    "business travel",
+    "hospitality",
+    "booking",
+    "travel",
   ],
-  authors: [{ name: "Author Name" }],
-  creator: "Author Name",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://hckerson.dev.com",
-    title: "Professional Author & Content Creator",
+    url: "https://hotelserenaheaven.com",
+    title: "Hotel Serena Heaven | Luxury Hotel in Newark",
     description:
-      "Award-winning author and content creator specializing in compelling narratives and professional writing services",
-    siteName: "Author Portfolio",
+      "Experience refined comfort at Hotel Serena Heaven in Newark — luxury rooms, signature dining, serene spa, and premier venues for events.",
+    siteName: "Hotel Serena Heaven",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Professional Author & Content Creator",
+    title: "Hotel Serena Heaven | Luxury Hotel in Newark",
     description:
-      "Award-winning author and content creator specializing in compelling narratives and professional writing services",
-    creator: "@authorname",
+      "Stay at Hotel Serena Heaven — boutique luxury, exceptional service, dining, spa, and event spaces in Newark.",
+    creator: "@HotelSerenaHeaven",
   },
   robots: {
     index: true,
@@ -58,6 +55,12 @@ export const metadata: Metadata = {
     },
   },
 };
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export default function RootLayout({
   children,
@@ -88,9 +91,7 @@ export default function RootLayout({
         >
           <LenisScrollContainer>
             <div className="flex min-h-screen flex-col bg-background">
-              <Navbar />
-              <main className=" ">{children}</main>
-              <Footer />
+              {children}
             </div>
             <Toaster />
           </LenisScrollContainer>

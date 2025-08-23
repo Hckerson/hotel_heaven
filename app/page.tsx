@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star } from "lucide-react";
 import { flex } from "@/components/fonts/fonts";
+import Navbar from "@/components/common/Navbar";
+import Footer from "@/components/common/Footer";
 import Video from "@/components/ui/video-player";
 
 export default function Home() {
@@ -13,6 +15,8 @@ export default function Home() {
     let width = window.innerWidth;
   }, []);
   return (
+    <>
+    <Navbar/>
     <div className={clsx("flex flex-col w-full relative box-border",flex.className )}>
       <div className="w-full mx-auto relative max-h-screen">
         <Video
@@ -114,5 +118,7 @@ export default function Home() {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }

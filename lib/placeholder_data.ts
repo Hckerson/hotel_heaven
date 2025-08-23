@@ -900,7 +900,7 @@ const navLinks = [
   { href: "/about", label: "About", link: true, size: "sm" , secure: false},
   { href: "/testimonials", label: "Testimonials", link: true, size: "sm" , secure: false},
   { href: "/room/reserve", label: "Book room", link: true, size: "md" , secure: false},
-  { href: "/auth/signup", label: "Sign up ", link: true, size: "lg" , secure: false},
+  { href: "/auth/login", label: "Sign up ", link: true, size: "lg" , secure: false},
 ];
 
 export { countries, people, reviews, admins, navLinks };

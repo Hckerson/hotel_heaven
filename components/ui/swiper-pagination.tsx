@@ -13,12 +13,8 @@ export default function Nav({
     left: ChevronLeft,
     right: ChevronRight,
   };
-  let ICON;
-  if (direction == "left") {
-    ICON = icons.left;
-  } else {
-    ICON = icons.right;
-  }
+  const ICON = direction == 'left'? icons.left : icons.right
+
   return (
     <button
       type="button"

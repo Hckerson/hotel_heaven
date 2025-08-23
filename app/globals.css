@@ -69,7 +69,7 @@
     --chart-5: 340 75% 55%;
   }
 
-  .diagonal-clip {
-    clip-path: ellipse(closest-side closest-side at 5rem 6rem);
+  .carved {
+    mask: radial-gradient(circle at 5% 25%, transparent 40px, black 42px);
   }
 }

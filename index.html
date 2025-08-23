@@ -1,62 +1,144 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Login Page</title>
     <style>
-      .swiper {
-        width: 600px;
-        height: 300px;
-      }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Outer black background like in the image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            width: 800px; /* Adjust as needed */
+            height: 500px; /* Adjust as needed */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .left {
+            flex: 1;
+            position: relative;
+            padding: 40px;
+            background: 
+                /* Multi-layer gradients for wavy effect */
+                linear-gradient(120deg, rgba(255, 0, 204, 0.8), transparent 70%),
+                linear-gradient(200deg, rgba(51, 51, 255, 0.8), transparent 70%),
+                linear-gradient(300deg, rgba(255, 0, 204, 0.8), transparent 70%),
+                #000; /* Base dark color */
+            background-blend-mode: overlay;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark overlay – this is the "transparent part" */
+            z-index: 1;
+        }
+
+        .left > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .left h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        .left p {
+            font-size: 16px;
+        }
+
+        .right {
+            flex: 1;
+            background-color: #fff;
+            padding: 40px;
+            color: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right h2 {
+            font-size: 24px;
+        }
+
+        .right form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .right input {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .right button {
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .right .google-btn {
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+            .left, .right {
+                width: 100%;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <div class="swiper">
-      <div class="swiper-wrapper">
-
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-        ...
-      </div>
-     
-      <div class="swiper-pagination"></div>
-
-    
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-
- 
-      <div class="swiper-scrollbar"></div>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <p>A Wise Quote</p>
+            <h1>Get Everything You Want</h1>
+            <p>You can get everything you want if you work hard, trust the process, and stick to the plan.</p>
+        </div>
+        <div class="right">
+            <h2>Welcome Back</h2>
+            <p>Enter your email and password to access your account</p>
+            <form>
+                <input type="email" placeholder="Enter your email">
+                <input type="password" placeholder="Enter your password">
+                <label><input type="checkbox"> Remember me</label>
+                <button>Sign In</button>
+                <button class="google-btn">Sign in with Google</button>
+            </form>
+            <p>Don't have an account? Sign Up</p>
+        </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-      const swiper = new Swiper(".swiper", {
-        // Optional parameters
-        direction: "vertical",
-        loop: true,
-
-        // If we need pagination
-        pagination: {
-          el: ".swiper-pagination",
-        },
-
-        // Navigation arrows
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-
-        // And if we need scrollbar
-        scrollbar: {
-          el: ".swiper-scrollbar",
-        },
-      });
-    </script>
-  </body>
+</body>
 </html>
