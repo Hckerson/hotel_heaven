@@ -55,7 +55,7 @@ export default function Footer() {
   ];
 
   const right = [
-    { name: "Our Rooms", link: "/room" },
+    { name: "Our Rooms", link: "/imgs/room" },
     { name: "Resource", link: "/resource" },
     { name: "Contact", link: "/contact" },
     { name: "Blog", link: "/blog" },

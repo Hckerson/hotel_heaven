@@ -2,12 +2,14 @@ import "./globals.css";
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import { flex } from "@/components/fonts/fonts";
-import { Toaster } from "@/components/ui/toaster";
 import LenisScrollContainer from "@/app/hooks/lenis";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 
 export const metadata = {
-  title: "Hotel Serena Heaven | Luxury Hotel in Newark",
+  title: {
+    template: '%s | Hotel Serena Heaven',
+    default: 'Hotel Serena Heaven | Luxury Hotel in Newark', // a default is required when creating a template
+  },
   description:
     "Hotel Serena Heaven — a boutique luxury hotel in Newark offering elegant rooms and suites, fine dining, spa services, and versatile event spaces.",
   keywords: [
@@ -90,10 +92,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <LenisScrollContainer>
-            <div className="flex min-h-screen flex-col bg-background">
+            <div className="flex min-h-screen flex-col">
               {children}
             </div>
-            <Toaster />
+  
           </LenisScrollContainer>
         </ThemeProvider>
       </body>

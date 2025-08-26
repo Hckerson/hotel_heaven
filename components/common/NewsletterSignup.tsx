@@ -3,24 +3,22 @@
 import { useState } from 'react';
 import { Send, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { useToast } from '@/hooks/use-toast';
+import { Toaster } from 'sonner';
 
 export default function NewsletterSignup() {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
-  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!email || !email.includes('@')) {
-      toast({
-        variant: "destructive",
-        title: "Invalid email",
-        description: "Please enter a valid email address.",
-      });
+      // toast({
+      //   variant: "destructive",
+      //   title: "Invalid email",
+      //   description: "Please enter a valid email address.",
+      // });
       return;
     }
     
@@ -35,16 +33,16 @@ export default function NewsletterSignup() {
       
       setIsSubscribed(true);
       setEmail('');
-      toast({
-        title: "Welcome aboard!",
-        description: "You've been successfully subscribed to our newsletter.",
-      });
+      // toast({
+      //   title: "Welcome aboard!",
+      //   description: "You've been successfully subscribed to our newsletter.",
+      // });
     } catch (error) {
-      toast({
-        variant: "destructive",
-        title: "Subscription failed",
-        description: "Something went wrong. Please try again.",
-      });
+      // toast({
+      //   variant: "destructive",
+      //   title: "Subscription failed",
+      //   description: "Something went wrong. Please try again.",
+      // });
     } finally {
       setIsLoading(false);
     }
@@ -54,9 +52,9 @@ export default function NewsletterSignup() {
     return (
       <div className="text-center p-6 bg-primary/10 rounded-xl border border-primary/20">
         <CheckCircle className="h-12 w-12 text-primary mx-auto mb-3" />
-        <h3 className="font-semibold text-lg mb-2">You're all set!</h3>
+        <h3 className="font-semibold text-lg mb-2">{`You're all set!`}</h3>
         <p className="text-sm text-muted-foreground">
-          Thank you for subscribing. You'll receive our next newsletter soon.
+          {`Thank you for subscribing. You'll receive our next newsletter soon.`}
         </p>
       </div>
     );
@@ -65,7 +63,7 @@ export default function NewsletterSignup() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="flex flex-col sm:flex-row gap-3">
-        <Input
+        <input
           type="email"
           placeholder="Enter your email address"
           value={email}

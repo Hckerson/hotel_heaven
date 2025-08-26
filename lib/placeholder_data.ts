@@ -803,7 +803,7 @@ const countries = [
 
 const people = [
   {
-    image: "/alii.png",
+    image: "/imgs/alii.png",
     name: "Michael Carter",
     position: "Senior sales strategist",
     socials: [
@@ -820,7 +820,7 @@ const people = [
     ],
   },
   {
-    image: "/hannahh.png",
+    image: "/imgs/hannahh.png",
     name: "Ryan Davis",
     position: "HR Head",
     socials: [
@@ -837,7 +837,7 @@ const people = [
     ],
   },
   {
-    image: "/christianaa.png",
+    image: "/imgs/christianaa.png",
     name: "Jessica Walker",
     position: "Customer  Successs Manager",
     socials: [
@@ -864,31 +864,31 @@ const reviews = [
 
 const admins = [
   {
-    img: "/ali.jpg",
+    img: "/imgs/ali.jpg",
     role: "Managing Director",
     name: "Steve Jobs",
     body: "As our Managing Director, Steve drives the vision and overall strategy of the hotel. His leadership ensures we blend innovation with hospitality to create unforgettable guest experiences.",
   },
   {
-    img: "/christianaa.png",
+    img: "/imgs/christianaa.png",
     role: "Customer Success Manager",
     name: "Jessica Walker",
     body: "Jessica is dedicated to guest satisfaction from the very first interaction. She ensures every stay is seamless, memorable, and tailored to individual needs.",
   },
   {
-    img: "/hannahh.png",
+    img: "/imgs/hannahh.png",
     role: "Human Resources Head",
     name: "Ryan Davis",
     body: "Ryan builds and nurtures the team that makes our service exceptional. From recruitment to training, he fosters a culture of excellence and care.",
   },
   {
-    img: "/hannah.jpg",
+    img: "/imgs/hannah.jpg",
     role: "Brand Ambassador",
     name: "Rick Ross",
     body: "Rick is the face of our brand, connecting our story with the world. His role bridges our values with the guests we serve, creating genuine and lasting impressions.",
   },
   {
-    img: "/alii.png",
+    img: "/imgs/alii.png",
     role: "Senior Sales Strategist",
     name: "Michael Carter",
     body: "Michael leads our sales initiatives with creativity and precision. His strategies strengthen partnerships and drive growth, ensuring our brand reaches new heights.",
@@ -896,11 +896,58 @@ const admins = [
 ];
 
 const navLinks = [
-  { href: "/", label: "Home", link: true, size: "sm" , secure: false},
-  { href: "/about", label: "About", link: true, size: "sm" , secure: false},
-  { href: "/testimonials", label: "Testimonials", link: true, size: "sm" , secure: false},
-  { href: "/room/reserve", label: "Book room", link: true, size: "md" , secure: false},
-  { href: "/auth/login", label: "Sign up ", link: true, size: "lg" , secure: false},
+  { href: "/", label: "Home", link: true, size: "sm", secure: false },
+  { href: "/about", label: "About", link: true, size: "sm", secure: false },
+  {
+    href: "/testimonials",
+    label: "Testimonials",
+    link: true,
+    size: "sm",
+    secure: false,
+  },
+  {
+    href: "/imgs/room/reserve",
+    label: "Book room",
+    link: true,
+    size: "md",
+    secure: false,
+  },
+  {
+    href: "/auth/login",
+    label: "Sign up ",
+    link: true,
+    size: "lg",
+    secure: false,
+  },
 ];
 
-export { countries, people, reviews, admins, navLinks };
+const lodgeType = ["Hotels", "Villas", "Apartments", "Resorts", "Cottages"];
+
+const houseData = [
+  {
+    imgUrl: "/imgs/villa.jpg",
+    name: "Villas",
+    available: 10234,
+    svg: "villa",
+  },
+  {
+    imgUrl: "/imgs/apartment.jpg",
+    name: "Apartments",
+    available: 3244,
+    svg: "apartment",
+  },
+  {
+    imgUrl: "/imgs/resort.jpg",
+    name: "Resorts",
+    available: 534,
+    svg: "resort",
+  },
+  {
+    imgUrl: "/imgs/cottage.jpg",
+    name: "Cottages",
+    available: 3242,
+    svg: "cottage",
+  },
+];
+
+export { countries, people, reviews, admins, navLinks, lodgeType, houseData };

@@ -45,21 +45,21 @@ export default function About() {
         <section className="overflow-hidden box-border w-full h-[calc(100vh-450px)] pb-16">
           <div className="grid gap-x-4 w-full lg:grid-cols-3 px-4 items-center justify-center">
             <Image
-              src={`/showcase-3.jpg`}
+              src={`/imgs/showcase-3.jpg`}
               alt="room"
               width={700}
               height={300}
               className="[clip-path:polygon(0_0,100%_0,100%_85%,85%_100%,0_100%)]"
             ></Image>
             <Image
-              src={`/showcase-2.jpg`}
+              src={`/imgs/showcase-2.jpg`}
               alt="room"
               width={700}
               height={300}
               className="[clip-path:polygon(0_0,100%_0,100%_85%,85%_100%,0_100%)]"
             ></Image>
             <Image
-              src={`/showcase-1.jpg`}
+              src={`/imgs/showcase-1.jpg`}
               alt="room"
               width={700}
               height={300}

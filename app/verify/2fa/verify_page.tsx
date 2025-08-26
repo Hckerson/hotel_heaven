@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 
 export default function VeryfiPage() {
@@ -53,7 +52,7 @@ export default function VeryfiPage() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-background p-4">
+    <main className="min-h-screen flex items-center justify-center  p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-2 text-center">
           <CardTitle className="text-2xl font-bold">Enter Verification Code</CardTitle>
@@ -64,7 +63,7 @@ export default function VeryfiPage() {
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <Input
+              <input
                 type="text"
                 placeholder="Enter 6-digit code"
                 value={otp}
@@ -96,6 +95,7 @@ export default function VeryfiPage() {
               </p>
               <Button
                 type="button"
+                variant="link"
                 onClick={handleResendOtp}
                 disabled={timeLeft > 0}
                 className="text-primary"
