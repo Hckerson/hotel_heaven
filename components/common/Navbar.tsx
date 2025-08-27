@@ -34,7 +34,7 @@ export default function Navbar() {
   return (
     <header
       className={clsx(
-        `fixed top-0 z-50 w-full transition-all duration-200 p-3 `,
+        `fixed top-0 z-50 w-full transition-all duration-200 p-3 bg-stone-300 `,
         isScrolled
           ? "bg-background/95 backdrop-blur-sm shadow-sm"
           : "bg-transparent",
