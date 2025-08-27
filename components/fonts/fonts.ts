@@ -10,5 +10,10 @@ const clash = localFont({
   src : './local/ClashDisplay-Bold.otf'
 })
 
+const roboto_flex = localFont({
+  src : './local/Roboto_Flex/roboto_flex.otf'
+})
 
-export {flex, clash}
+
+
+export {flex, clash, roboto_flex}

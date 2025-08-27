@@ -950,4 +950,55 @@ const houseData = [
   },
 ];
 
-export { countries, people, reviews, admins, navLinks, lodgeType, houseData };
+const hotelData = [
+  {
+    imgUrl: "/imgs/bed-one.jpg",
+    name: "Montmarte Majesty Hotel",
+    location: "Marseille",
+    star: "4.7",
+    review: "2578",
+    price: "250",
+    discountedPrice: "160",
+  },
+  {
+    imgUrl: "/imgs/bed-two.jpg",
+    name: "Elysee Retreat",
+    location: "Paris",
+    star: "4.8",
+    review: "1236",
+    price: "240",
+    discountedPrice: "150",
+  },
+  {
+    imgUrl: "/imgs/bed-three.jpg",
+    name: "Versailles Vista Inn",
+    location: "Strasbourg",
+    star: "4.7",
+    review: "1356",
+    price: "220",
+    discountedPrice: null,
+  },
+  {
+    imgUrl: "/imgs/bed-four.avif",
+    name: "Loire  Luxury lodge",
+    location: "Cannes",
+    star: "4.9",
+    review: "985",
+    price: "398",
+    discountedPrice: "350",
+  },
+];
+
+const defaultyShowedCountry = ["France", "Italy", "Japan", "Austalia"];
+
+export {
+  countries,
+  people,
+  reviews,
+  admins,
+  navLinks,
+  lodgeType,
+  houseData,
+  hotelData,
+  defaultyShowedCountry,
+};

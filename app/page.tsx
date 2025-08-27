@@ -3,7 +3,6 @@ import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect } from "react";
-import { flex } from "@/components/fonts/fonts";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
 import Video from "@/components/ui/video-player";
@@ -18,7 +17,6 @@ export default function Home() {
       <div
         className={clsx(
           "flex flex-col w-full relative box-border",
-          flex.className,
         )}
       >
         <div className="w-full mx-auto relative max-h-screen">

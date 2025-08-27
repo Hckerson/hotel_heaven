@@ -23,16 +23,18 @@ export default function LodgeCard({ cardData }: { cardData: CardData }) {
     <div className={clsx("relative grid gap-y-3")}>
       <div className="flex relative">
         <div className="flex flex-col space-y-2">
-          <span>{cardData.name}</span>
+          <span className="text-lg font-semibold">{cardData.name}</span>
           <div className="flex space-x-3">
-            <span>
+            <span className="">
               <ICON />
             </span>
             <p className="text-start">{cardData.available} available </p>
           </div>
         </div>
-        <div className="absolute right-0">
-          <ChevronDown className="" />
+        <div className="absolute h-full right-0 flex items-center ">
+          <div className="bg-slate-50 shadow-lg rounded-lg p-2 border border-white/80 hover:translate-y-1 transition-transform ease-in-out duration-200">
+            <ChevronDown className="" />
+          </div>
         </div>
       </div>
       <div className="w-full  box-border rounded-2xl h-[175px]">
@@ -45,6 +47,6 @@ export default function LodgeCard({ cardData }: { cardData: CardData }) {
           src={cardData.imgUrl}
         ></Image>
       </div>
-    </div>
+    </div> 
   );
 }
