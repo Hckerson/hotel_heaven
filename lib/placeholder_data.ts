@@ -1,3 +1,4 @@
+import { max } from "date-fns";
 import { Instagram, Linkedin } from "lucide-react";
 const countries = [
   {
@@ -950,6 +951,25 @@ const houseData = [
   },
 ];
 
+const adsData = [
+  {
+    startDate: "14 Jan",
+    endDate: "20 Jan",
+    percentage: "50",
+    maxChar: "20ch",
+    heading: "Get Extra Discount at Azure Oasis 'Hotel",
+    imageSrc: "/imgs/ads-one.jpg"
+  },
+  {
+    startDate: "16 Jan",
+    endDate: "28 Jan",
+    percentage: "75",
+    maxChar: "15ch",
+    heading: "Exclusive Deals Just For You",
+    imageSrc: "/imgs/ads-two.jpg"
+  },
+];
+
 const hotelData = [
   {
     imgUrl: "/imgs/bed-one.jpg",
@@ -992,12 +1012,13 @@ const hotelData = [
 const defaultyShowedCountry = ["France", "Italy", "Japan", "Austalia"];
 
 export {
-  countries,
   people,
   reviews,
   admins,
+  adsData,
   navLinks,
   lodgeType,
+  countries,
   houseData,
   hotelData,
   defaultyShowedCountry,

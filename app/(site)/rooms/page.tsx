@@ -2,17 +2,19 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
+import AdsCard from "@/components/adsCard";
 import RoomCard from "@/components/roomCard";
 import LodgeCard from "@/components/lodgeCard";
-import { MapPin, UsersRound, UserRound, CalendarDays } from "lucide-react";
+import { MapPin, UsersRound, CalendarDays, MoveRight } from "lucide-react";
 import {
+  adsData,
   lodgeType,
   houseData,
   hotelData,
   defaultyShowedCountry,
 } from "@/lib/placeholder_data";
 
-export default function Booking() {
+export default function Rooms() {
   const [location, setLocation] = useState<string>("Find Location");
   const [guest, setGuest] = useState<string>("Add Dates");
   const [date, setDate] = useState<string>("1 guest, 1 room");
@@ -194,6 +196,22 @@ export default function Booking() {
                 })}
               </div>
             </section>
+            <section className="grid gap-y-4 px-6 py-5">
+              <div className="flex justify-between">
+                <p>Get promo for a cheaper price</p>
+                <button className="flex items-center">
+                  See All{" "}
+                  <span>
+                    <MoveRight />
+                  </span>
+                </button>
+              </div>
+              <div className="grid grid-cols-2 gap-x-5 ">
+                {adsData.map((ads) => {
+                  return <AdsCard key={ads.heading} adsData={ads} />;
+                })}
+              </div>
+            </section>  
           </div>
         </div>
       </section>

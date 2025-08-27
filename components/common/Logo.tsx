@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { PenTool } from "lucide-react";
 import { BedDouble } from "lucide-react";
 
 export function Logo({
